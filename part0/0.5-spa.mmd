@@ -1,26 +1,26 @@
 sequenceDiagram
-    participant browser
-    participant server
+    participant Navegador
+    participant Servidor
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
-    activate server
-    server-->>browser: HTML document
-    deactivate server
+    Navegador->>Servidor: GET /spa
+    activate Servidor
+    Servidor-->>Navegador: documento HTML
+    deactivate Servidor
 
-    browser->>server: GET /main.css
-    activate server
-    server-->>browser: CSS file
-    deactivate server
+    Navegador->>Servidor: GET /main.css
+    activate Servidor
+    Servidor-->>Navegador: archivo CSS
+    deactivate Servidor
 
-    browser->>server: GET /spa.js
-    activate server
-    server-->>browser: JavaScript file (spa.js)
-    deactivate server
+    Navegador->>Servidor: GET /spa.js
+    activate Servidor
+    Servidor-->>Navegador: archivo JavaScript (spa.js)
+    deactivate Servidor
 
-    Note right of browser: Browser executes spa.js code
-    browser->>server: GET /data.json
-    activate server
-    server-->>browser: JSON data with notes
-    deactivate server
+    Note right of Navegador: Navegador ejecuta código spa.js
+    Navegador->>Servidor: GET /data.json
+    activate Servidor
+    Servidor-->>Navegador: JSON con notas
+    deactivate Servidor
 
-    Note right of browser: SPA renders notes with JS (no page reload)
+    Note right of Navegador: SPA renderiza notas con JS (sin recargar página)

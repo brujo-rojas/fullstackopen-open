@@ -1,13 +1,13 @@
 sequenceDiagram
-    participant browser
-    participant server
+    participant Navegador
+    participant Servidor
 
-    Note over browser: User types note in SPA and clicks Save
-    browser->>server: POST /new_note_spa (JSON data: content + date)
-    activate server
-    server-->>browser: 201 Created
-    deactivate server
+    Note over Navegador: Usuario escribe nota en SPA y hace clic en Guardar
+    Navegador->>Servidor: POST /new_note_spa (JSON: contenido + fecha)
+    activate Servidor
+    Servidor-->>Navegador: 201 Created
+    deactivate Servidor
 
-    Note right of browser: SPA updates UI locally (no reload)
-    Note right of browser: redrawNotes() renders new note immediately
-    Note right of browser: No additional HTTP requests needed
+    Note right of Navegador: SPA actualiza UI localmente (sin recargar)
+    Note right of Navegador: redrawNotes() renderiza la nueva nota inmediatamente
+    Note right of Navegador: No necesitarequests HTTP adicionales

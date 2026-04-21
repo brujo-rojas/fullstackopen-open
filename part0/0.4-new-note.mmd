@@ -1,29 +1,31 @@
 sequenceDiagram
-    participant browser
-    participant server
+    participant Navegador
+    participant Servidor
 
-    Note over browser: User types note and clicks Save
-    browser->>server: POST /new_note (form data: note content)
-    activate server
-    server-->>browser: 302 Redirect to /notes
-    deactivate server
+    Note over Navegador: Usuario escribe nota y hace clic en Guardar
+    Navegador->>Servidor: POST /new_note (datos del formulario)
+    activate Servidor
+    Servidor-->>Navegador: 302 Redirect a /notes
+    deactivate Servidor
 
-    browser->>server: GET /notes
-    activate server
-    server-->>browser: HTML document
-    deactivate server
+    Navegador->>Servidor: GET /notes (recarga página)
+    activate Servidor
+    Servidor-->>Navegador: HTML documento
+    deactivate Servidor
 
-    browser->>server: GET /main.css
-    activate server
-    server-->>browser: CSS file
-    deactivate server
+    Navegador->>Servidor: GET /main.css
+    activate Servidor
+    Servidor-->>Navegador: archivo CSS
+    deactivate Servidor
 
-    browser->>server: GET /main.js
-    activate server
-    server-->>browser: JavaScript file
-    deactivate server
+    Navegador->>Servidor: GET /main.js
+    activate Servidor
+    Servidor-->>Navegador: archivo JavaScript
+    deactivate Servidor
 
-    browser->>server: GET /data.json
-    activate server
-    server-->>browser: JSON data with notes
-    deactivate server
+    Navegador->>Servidor: GET /data.json
+    activate Servidor
+    Servidor-->>Navegador: JSON con notas guardadas
+    deactivate Servidor
+
+    Note over Navegador: Renderiza todas las notas nuevamente
