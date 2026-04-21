@@ -1,54 +1,54 @@
 sequenceDiagram
-    participant Navegador
-    participant Servidor
+    participant Browser
+    participant Server
 
-    Note over Navegador: Usuario ingresa a /notes
-    Navegador->>Servidor: GET /notes
-    activate Servidor
-    Servidor-->>Navegador: documento HTML
-    deactivate Servidor
+    Note over Browser: User visits /notes page
+    Browser->>Server: GET /notes
+    activate Server
+    Server-->>Browser: HTML document
+    deactivate Server
 
-    Navegador->>Servidor: GET /main.css
-    activate Servidor
-    Servidor-->>Navegador: archivo CSS
-    deactivate Servidor
+    Browser->>Server: GET /main.css
+    activate Server
+    Server-->>Browser: CSS file
+    deactivate Server
 
-    Navegador->>Servidor: GET /main.js
-    activate Servidor
-    Servidor-->>Navegador: archivo JavaScript
-    deactivate Servidor
+    Browser->>Server: GET /main.js
+    activate Server
+    Server-->>Browser: JavaScript file
+    deactivate Server
 
-    Navegador->>Servidor: GET /data.json
-    activate Servidor
-    Servidor-->>Navegador: JSON con notas
-    deactivate Servidor
+    Browser->>Server: GET /data.json
+    activate Server
+    Server-->>Browser: JSON with notes
+    deactivate Server
 
-    Note over Navegador: Renderiza notas con JS
+    Note over Browser: Render notes with JS
 
-    Note over Navegador: Usuario escribe nota y hace clic en Guardar
-    Navegador->>Servidor: POST /new_note (datos del formulario)
-    activate Servidor
-    Servidor-->>Navegador: 302 Redirect a /notes
-    deactivate Servidor
+    Note over Browser: User types note and clicks Save
+    Browser->>Server: POST /new_note (form data)
+    activate Server
+    Server-->>Browser: 302 Redirect to /notes
+    deactivate Server
 
-    Navegador->>Servidor: GET /notes (recarga página)
-    activate Servidor
-    Servidor-->>Navegador: documento HTML
-    deactivate Servidor
+    Browser->>Server: GET /notes (page reload)
+    activate Server
+    Server-->>Browser: HTML document
+    deactivate Server
 
-    Navegador->>Servidor: GET /main.css
-    activate Servidor
-    Servidor-->>Navegador: archivo CSS
-    deactivate Servidor
+    Browser->>Server: GET /main.css
+    activate Server
+    Server-->>Browser: CSS file
+    deactivate Server
 
-    Navegador->>Servidor: GET /main.js
-    activate Servidor
-    Servidor-->>Navegador: archivo JavaScript
-    deactivate Servidor
+    Browser->>Server: GET /main.js
+    activate Server
+    Server-->>Browser: JavaScript file
+    deactivate Server
 
-    Navegador->>Servidor: GET /data.json
-    activate Servidor
-    Servidor-->>Navegador: JSON con notas (incluye nueva)
-    deactivate Servidor
+    Browser->>Server: GET /data.json
+    activate Server
+    Server-->>Browser: JSON with notes (includes new one)
+    deactivate Server
 
-    Note over Navegador: Renderiza todas las notas nuevamente
+    Note over Browser: Render all notes again
