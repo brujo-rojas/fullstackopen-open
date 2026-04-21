@@ -2,15 +2,10 @@ sequenceDiagram
     participant Navegador
     participant Servidor
 
-    Note over Navegador: Usuario escribe nota y hace clic en Guardar
-    Navegador->>Servidor: POST /new_note (datos del formulario)
+    Note over Navegador: Usuario ingresa a /notes
+    Navegador->>Servidor: GET /notes
     activate Servidor
-    Servidor-->>Navegador: 302 Redirect a /notes
-    deactivate Servidor
-
-    Navegador->>Servidor: GET /notes (recarga página)
-    activate Servidor
-    Servidor-->>Navegador: HTML documento
+    Servidor-->>Navegador: documento HTML
     deactivate Servidor
 
     Navegador->>Servidor: GET /main.css
@@ -25,7 +20,35 @@ sequenceDiagram
 
     Navegador->>Servidor: GET /data.json
     activate Servidor
-    Servidor-->>Navegador: JSON con notas guardadas
+    Servidor-->>Navegador: JSON con notas
+    deactivate Servidor
+
+    Note over Navegador: Renderiza notas con JS
+
+    Note over Navegador: Usuario escribe nota y hace clic en Guardar
+    Navegador->>Servidor: POST /new_note (datos del formulario)
+    activate Servidor
+    Servidor-->>Navegador: 302 Redirect a /notes
+    deactivate Servidor
+
+    Navegador->>Servidor: GET /notes (recarga página)
+    activate Servidor
+    Servidor-->>Navegador: documento HTML
+    deactivate Servidor
+
+    Navegador->>Servidor: GET /main.css
+    activate Servidor
+    Servidor-->>Navegador: archivo CSS
+    deactivate Servidor
+
+    Navegador->>Servidor: GET /main.js
+    activate Servidor
+    Servidor-->>Navegador: archivo JavaScript
+    deactivate Servidor
+
+    Navegador->>Servidor: GET /data.json
+    activate Servidor
+    Servidor-->>Navegador: JSON con notas (incluye nueva)
     deactivate Servidor
 
     Note over Navegador: Renderiza todas las notas nuevamente
